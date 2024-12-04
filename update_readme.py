@@ -6,10 +6,12 @@ def count_files_in_directory(directory):
 
 def update_readme():
     """更新 README 文件中的题目数量"""
+    # 统计各文件夹下的 Python 文件数量
     easy_count = count_files_in_directory('easy')
     medium_count = count_files_in_directory('medium')
     hard_count = count_files_in_directory('hard')
 
+    # 构建更新后的 README 内容
     readme_content = f"""
 # LeetCode Solutions
 This repository contains my solutions for LeetCode problems, organized by difficulty and type.
