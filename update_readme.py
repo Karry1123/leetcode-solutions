@@ -1,31 +1,33 @@
 import os
 
-def count_problems():
-    """统计各难度文件夹中的文件数量"""
-    folders = {"easy": "easy", "medium": "medium", "hard": "hard"}
-    counts = {}
-    for difficulty, folder in folders.items():
-        counts[difficulty] = len([f for f in os.listdir(folder) if f.endswith('.py')])
-    return counts
+def count_files_in_directory(directory):
+    """返回目录下所有 Python 文件的数量"""
+    return len([f for f in os.listdir(directory) if f.endswith('.py')])
 
-def update_readme(counts):
-    """更新 README.md 文件的 Progress 部分"""
-    readme_path = "README.md"
-    with open(readme_path, "r", encoding="utf-8") as file:
-        lines = file.readlines()
+def update_readme():
+    """更新 README 文件中的题目数量"""
+    easy_count = count_files_in_directory('easy')
+    medium_count = count_files_in_directory('medium')
+    hard_count = count_files_in_directory('hard')
 
-    with open(readme_path, "w", encoding="utf-8") as file:
-        for line in lines:
-            if line.startswith("- **Easy**:"):
-                file.write(f"- **Easy**: {counts['easy']} problems\n")
-            elif line.startswith("- **Medium**:"):
-                file.write(f"- **Medium**: {counts['medium']} problems\n")
-            elif line.startswith("- **Hard**:"):
-                file.write(f"- **Hard**: {counts['hard']} problems\n")
-            else:
-                file.write(line)
+    readme_content = f"""
+# LeetCode Solutions
+This repository contains my solutions for LeetCode problems, organized by difficulty and type.
 
-if __name__ == "__main__":
-    counts = count_problems()
-    update_readme(counts)
-    print(f"Updated README.md with counts: {counts}")
+## Structure
+- `easy/`: Solutions to easy problems.
+- `medium/`: Solutions to medium problems.
+- `hard/`: Solutions to hard problems.
+
+## Progress
+- Easy: {easy_count} problems
+- Medium: {medium_count} problems
+- Hard: {hard_count} problems
+    """
+
+    # 将更新后的内容写入 README.md 文件
+    with open('README.md', 'w') as readme_file:
+        readme_file.write(readme_content)
+
+if __name__ == '__main__':
+    update_readme()
