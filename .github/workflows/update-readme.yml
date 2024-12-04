@@ -21,11 +21,6 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt  # 如果有依赖文件
-
     - name: Run update_readme.py
       run: python update_readme.py  # 运行脚本更新 README.md 文件
 
@@ -36,4 +31,3 @@ jobs:
         git add README.md
         git commit -m "Update progress in README.md" || echo "No changes to commit"
         git push origin main
-
