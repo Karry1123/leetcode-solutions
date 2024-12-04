@@ -18,10 +18,14 @@ jobs:
       with:
         python-version: '3.x'  # 你可以根据需要选择版本
 
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-distutils  # 安装 distutils 包
+
     - name: Install dependencies
       run: |
-        # 如果需要安装依赖，可以添加这个步骤
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi  # 安装 Python 包
 
     - name: Run update readme script
       run: |
