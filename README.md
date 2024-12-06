@@ -9,4 +9,4 @@ This repository contains my solutions for LeetCode problems, organized by diffic
 ## Progress
 - Easy: 30 problems
 - Medium: 36 problems
-- Hard: 5 problems
+- Hard: 6 problems
