@@ -7,6 +7,6 @@ This repository contains my solutions for LeetCode problems, organized by diffic
 - `hard/`: Solutions to hard problems.
 
 ## Progress
-- Easy: 44 problems
+- Easy: 45 problems
 - Medium: 81 problems
 - Hard: 11 problems
