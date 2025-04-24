@@ -8,5 +8,5 @@ This repository contains my solutions for LeetCode problems, organized by diffic
 
 ## Progress
 - Easy: 49 problems
-- Medium: 93 problems
+- Medium: 94 problems
 - Hard: 13 problems
